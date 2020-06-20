@@ -231,3 +231,12 @@ Then we can use these data on any page.
 ## Activity indicator and Progress
 
 In application is implemented loading animation to give application a time to load all necessary data.
+
+**.html**
+```
+<Stacklayout *ngIf="notLoaded">
+    <Progress class="m-20" value="{{ loadingValue }}"></Progress>
+    <ActivityIndicator busy="true"></ActivityIndicator>
+</Stacklayout>
+```
+Animation is shown while notLoaded variable is true. loadingValue shows status from 0 to 100.
