@@ -1,2 +1,8 @@
-# dbHitsaMonitoring
-Mobile application controls if data is sent to database correctly
+# Postgre database dbHitsa monitoring
+Mobile application which controls data send to database.
+
+# Source
+This folder contains mobile application source code
+
+# Web
+This folder contains files. 
