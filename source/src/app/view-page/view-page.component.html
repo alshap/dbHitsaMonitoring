@@ -1,0 +1,51 @@
+<ActionBar title="Records">
+    <Actionitem text="Menu" android.position="actionBar" (tap)="onDrawerButtonTap()"></Actionitem>
+</ActionBar>
+<Stacklayout>
+    <Label text="Note: Tap on record to see details" class="prmNote"></Label>
+    <Label text="{{ connectionTypeString }}" *ngIf="!isInternetConnection" class="prmInternet"></Label>
+    <ListPicker [items]="listSelect" selectedIndex="0" (selectedIndexChange)="onSelectedIndexChanged($event)"></ListPicker>
+</Stacklayout>
+
+<Stacklayout *ngIf="notLoaded">
+    <Progress class="m-20" value="{{ loadingValue }}"></Progress>
+    <ActivityIndicator busy="true"></ActivityIndicator>
+</Stacklayout>
+
+<div *ngIf="!notLoaded">
+<div *ngIf="selectedView == 0" class="topoffset">
+    <ListView [items]="records" class="list-group list-size">
+        <ng-template let-record="item" let-odd="odd" let-even="even">
+            <Gridlayout rows="auto, auto" columns="auto, *, auto" (tap)="navigateOnDetails(record[0])">
+                    <Label text="Controller_Sensor: {{ record[0] }}" col="0" row="0" class="list-group-item"></Label>
+                    <Label text="Status: {{ getStatus(record[1]) }}" col="0" row="1" class="list-group-item"></Label>
+                    <Label text="Last entry {{ getSecondsFromLastRecord(record[1]) }} s ago" col="1" row="1" class="list-group-item"></Label>
+            </Gridlayout>
+        </ng-template>
+    </ListView>
+</div>
+
+<div *ngIf="selectedView == 1" class="topoffset">
+    <ListView [items]="okRecords" class="list-group list-size">
+        <ng-template let-record="item" let-odd="odd" let-even="even">
+            <Gridlayout rows="auto, auto" columns="auto, *, auto" (tap)="navigateOnDetails(record[0])">
+                    <Label text="Controller_Sensor: {{ record[0] }}" col="0" row="0" class="list-group-item"></Label>
+                    <Label text="Status: {{ getStatus(record[1]) }}" col="0" row="1" class="list-group-item"></Label>
+                    <Label text="Last entry {{ getSecondsFromLastRecord(record[1]) }} s ago" col="1" row="1" class="list-group-item"></Label>
+            </Gridlayout>
+        </ng-template>
+    </ListView>
+</div>
+
+<div *ngIf="selectedView == 2" class="topoffset">
+    <ListView [items]="outdatedRecords" class="list-group list-size">
+        <ng-template let-record="item" let-odd="odd" let-even="even">
+            <Gridlayout rows="auto, auto" columns="auto, *, auto" (tap)="navigateOnDetails(record[0])">
+                    <Label text="Controller_Sensor: {{ record[0] }}" col="0" row="0" class="list-group-item"></Label>
+                    <Label text="Status: {{ getStatus(record[1]) }}" col="0" row="1" class="list-group-item"></Label>
+                    <Label text="Last entry {{ getSecondsFromLastRecord(record[1]) }} s ago" col="1" row="1" class="list-group-item"></Label>
+            </Gridlayout>
+        </ng-template>
+    </ListView>
+</div>
+</div>

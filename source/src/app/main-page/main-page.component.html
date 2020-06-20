@@ -1,0 +1,15 @@
+<ActionBar title="Main page">
+    <Actionitem text="Menu" android.position="actionBar" (tap)="onDrawerButtonTap()"></Actionitem>
+</ActionBar>
+<Stacklayout>
+    <Label text="{{ connectionTypeString }}" *ngIf="!isInternetConnection" class="prmInternet"></Label>
+</Stacklayout>
+
+<Stacklayout *ngIf="notLoaded">
+    <Progress class="m-20" value="{{ loadingValue }}"></Progress>
+    <ActivityIndicator busy="true"></ActivityIndicator>
+</Stacklayout>
+<Stacklayout>
+    <Label text="To rebuild sensors list use" class="txt1"></Label>
+    <Button text="Vacuum db" (tap)="eraseDatabase()" class="btn1"></Button>
+</Stacklayout>

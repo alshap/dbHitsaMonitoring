@@ -1,0 +1,23 @@
+.prmInternet{
+    font-size: 18;
+    color: red;
+    text-align: center;
+    background-color: lightgreen;
+    border-radius: 20%;
+    height: 5%;
+    padding-top: 3%;
+}
+
+.btn1{
+    position: relative;
+    height: 7%;
+    width: 30%;
+    left: 5%;
+    background-color: lightgreen;
+}
+
+.txt1{
+    text-align: center;
+    color: lightskyblue;
+    font-size: 18;
+}

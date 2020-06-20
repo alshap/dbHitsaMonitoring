@@ -1,0 +1,16 @@
+<ActionBar title="Details page">
+    <Actionitem text="Menu" android.position="actionBar" (tap)="onDrawerButtonTap()"></Actionitem>
+</ActionBar>
+
+<Stacklayout *ngIf="notLoaded">
+    <Progress class="m-20" value="{{ loadingValue }}"></Progress>
+    <ActivityIndicator busy="true"></ActivityIndicator>
+</Stacklayout>
+<Gridlayout rows="50, 50, 50, 50, 50, 50" columns="auto, auto, auto, auto, auto, auto" *ngIf="!notLoaded">
+    <Label text="Controller: {{ CSdetails[0] }}" col="0" row="0" class="h2"></Label>
+    <Label text="Sensor: {{ CSdetails[1] }}" col="0" row="1" class="h2"></Label>
+    <Label text="Mac: {{ CSdetails[2] }}" col="0" row="2" class="h2"></Label>
+    <Label text="Room: {{ CSdetails[3] }}" col="0" row="3" class="h2"></Label>
+    <Label text="Date Install: {{ CSdetails[4] }}" col="0" row="4" class="h2"></Label>
+    <Label text="Status: {{ CSdetails[5] }}" col="0" row="5" class="h2"></Label>
+</Gridlayout>

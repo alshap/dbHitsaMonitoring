@@ -1,0 +1,22 @@
+<ActionBar title="Controllers and Sensors">
+    <Actionitem text="Menu" android.position="actionBar" (tap)="onDrawerButtonTap()"></Actionitem>
+</ActionBar>
+
+<Stacklayout>
+    <Label text="{{ connectionTypeString }}" *ngIf="!isInternetConnection" class="prmInternet"></Label>
+</Stacklayout>
+
+<Stacklayout *ngIf="notLoaded">
+    <Progress class="m-20" value="{{ loadingValue }}"></Progress>
+    <ActivityIndicator busy="true"></ActivityIndicator>
+</Stacklayout>
+
+<ListView [items]="statuses" class="list-group list-size" *ngIf="!notLoaded">
+    <ng-template let-status="item" let-odd="odd" let-even="even">
+        <Gridlayout rows="auto, auto" columns="auto, *, auto">
+                <Label text="ID: {{ status.id_cs }}" col="0" row="0" class="list-group-item"></Label>
+                <Label text="Status: {{ status.status }}" col="0" row="1" class="list-group-item"></Label>
+                <Button text="Change status" col="1" row="1" class="list-group-item" (tap)="changeStatus(status.id_cs, status.status)"></Button>
+        </Gridlayout>
+    </ng-template>
+</ListView>
