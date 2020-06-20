@@ -25,3 +25,12 @@ If something went wrong check errors in console.
 ```
 >tns run android
 ```
+
+# Application Description
+
+# Intro
+
+Database monitoring application has 3 pages: 
+1. Main page with settings. There is rebuild sensors status sqlite database function. Use it if application do not see all sensors.
+2. Records page to see last records in database from each sensor. Has got 3 options: show all records, show correct records and show outdated records. Can see only records with active status.
+3. Sensors page with all sensors list and ability to change sensor status to active/unactive. 
