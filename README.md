@@ -7,4 +7,4 @@ To run current application it is needed to write your credentials in requests.ph
 This folder contains mobile application source code
 
 # Web
-This folder contains files. 
+This folder contains .php files for backend. 
